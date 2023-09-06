@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .red {color: #ff0000;}
+    .blue {color: #0000ff;}
+  </style>
+</head>
+<body>
+
+  <div>
+    <h1>Cities</h1>
+    <ul>
+      <li id="one" class="red">Seoul</li>
+      <li id="two" class="red">London</li>
+      <li id="three" class="red">NewYork</li>
+      <li id="four">Tokyo</li>
+    </ul>
+  </div>
+
+  <script>
+    var loadFunc = () => {
+      const elems = document.getElementsByClassName('red');
+      for (let i=0; i<elems.length; i++) {
+        // elems[1].className='blue';
+        [...elems].forEach(el => el.className='blue');
+      }
+      document.getElementsByTagName(tagname);
+    };
+    window.onload = loadFunc;
+  </script>
+
+</body>
+</html>
