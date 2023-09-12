@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <div id="container">
+      <button class="btnOk">확인</button>
+      <button class="btnShow">출력</button>
+    </div>
+  </div>
+  
+</body>
+<script>
+  function handleOkClick() {
+    return () => {
+      const container = document.getElementById("txtContainer");
+      const divData = document.createElement('div');
+      const inputData = document.createElement('input');
+      inputData.className='input_data_'+btnCount;
+      divData.appendChild(inputData);
+      container.appendChild(divData);
+      btnCount++;
+    };
+  }
+
+  function onLoadData() {
+    const btnOk = document.querySelector(".btnOk");
+    btnOk.onclick = handleOkClick();
+    const btnShow = document.querySelector(".btnShow");
+    btnShow.onclick = () => {
+      const elem = document.querySelector("#txtContainer");
+      if (elem.hasChildNodes()) {
+        [...elem.children].forEach(el => console.log(el.children[0].value));
+      }
+    }
+  }
+  window.onload = onLoadData;
+</script>
+</html>
