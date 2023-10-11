@@ -15,7 +15,20 @@ http.createServer( async (req, res) => {
         return res.end(data);
       }
     } else if (req.method === 'POST') {
-      
+      if (req.url === '/user') {
+        let body = '';
+        req.on('data', (data) => {
+          body += data;
+        });
+        req.on('end', () => {
+          console.log('post body : ', body);
+          const {name} = JSON.parse(body);
+          const id = Data.now();
+          users[id] = name;
+          res.writeHead(201, { 'Content-Type': 'text/html; charset=utf-8' });
+          res.end('Ok');
+        });
+      }
     } else if (req.method === 'PUT') {
       
     } else if (req.method === 'DELETE') {
