@@ -80,5 +80,27 @@
         }
       });
     });
+
+    document.querySelectorAll('.twit-delete').forEach(function(tag) {
+      tag.addEventListener('click', function() {
+        const myId = document.querySelector('#my-id');
+        if (myId) {
+          const userId = tag.parentNode.querySelector('.twit-user-id').value;
+          const bno = tag.parentNode.querySelector('.twit-id').value;
+          if (userId === myId.value) {
+            if (confirm(bno + '번 게잇물을 삭제 하시겠습니까?')) {
+              axios.delete(`/post/${bno}`)
+                .then(() => {
+                  location.reload();
+                })
+                .catch((err) => {
+                  console.error(err);
+                });
+            }
+          }
+        }
+      })
+    });
+    
   </script>
 {% endblock %}
