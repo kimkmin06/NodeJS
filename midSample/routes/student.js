@@ -12,10 +12,10 @@ router.get("/", (req, res) => {
 
 router.get('/:idx', (req, res) => {
   let index = req.params.idx;
-  // res.send('Student[' + index + '] = ' + students[index]);
+  res.send('Student[' + index + '] = ' + students[index]);
 
   // let name = students[index];
-  res.render('student', { students });
+  // res.render('student', { students });
 });
 
 module.exports = router;
