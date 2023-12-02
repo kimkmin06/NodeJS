@@ -12,7 +12,9 @@
       <div class="profile-wrap">
         <div class="profile">
           {% if user and user.id %}
-            <div class="user-name">{{'안녕하세요! ' + user.nick + '님'}}</div>
+            <div class="user-name">{{'안녕하세요! ' + user.nick + '님'}}
+              <button class="name-edit">닉네임 변경</button>
+            </div>
             <div class="half">
               <div>팔로잉</div>
               <div class="count following-count">{{followingCount}}</div>
@@ -36,7 +38,7 @@
             </div>
             <a id="join" href="/join" class="btn">회원가입</a>
             <button id="login" type="submit" class="btn">로그인</button>
-            <a id="kakao" href="/auth/kakao" class="btn">카카오톡</a>
+            <!-- <a id="kakao" href="/auth/kakao" class="btn">카카오톡</a> -->
           </form>
         {% endif %}
         </div>
@@ -55,6 +57,24 @@
           alert(new URL(location.href).searchParams.get('error'));
         }
       };
+
+      document.querySelectorAll('.name-edit').forEach(function(tag) {
+        tag.addEventListener('click', function() {
+          const name = prompt('바꿀 닉네임을 입력하세요');
+          if (name) {
+             axios.put(`/user/edit`, { name: name })
+              .then(() => {
+                alert('닉네임이 변경되었습니다');
+                location.reload();
+              })
+              .catch((err) => {
+                console.error(err);
+              });
+          } else {
+           return alert('닉네임을 반드시 입력하셔야 합니다');
+          }
+        });
+      });
     </script>
     {% block script %}
     {% endblock %}

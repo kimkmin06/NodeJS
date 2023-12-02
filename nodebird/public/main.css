@@ -47,6 +47,20 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   background: lightcoral;
 }
 .user-name { font-weight: bold; font-size: 18px; }
+.name-edit {
+  display: inline-block;
+  padding: 0 5px;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background: white;
+  border: 1px solid silver;
+  color: crimson;
+  height: 37px;
+  line-height: 37px;
+  vertical-align: top;
+  font-size: 12px;
+}
 .count { font-weight: bold; color: crimson; font-size: 18px; }
 .timeline {
   margin-top: 10px;
@@ -90,12 +104,39 @@ input[type='text'], input[type='email'], input[type='password'], textarea {
   margin-bottom: 10px;
 }
 .twit-author { display: inline-block; font-weight: bold; margin-right: 10px; }
+.twit-edit {
+  padding: 1px 5px;
+  background: #fff;
+  border: 1px solid silver;
+  border-radius: 5px;
+  color: green;
+  font-size: 12px;
+  cursor: pointer;
+}
+.twit-delete {
+  padding: 1px 5px;
+  background: #fff;
+  border: 1px solid silver;
+  border-radius: 5px;
+  color: red;
+  font-size: 12px;
+  cursor: pointer;
+}
 .twit-follow {
   padding: 1px 5px;
   background: #fff;
   border: 1px solid silver;
   border-radius: 5px;
   color: crimson;
+  font-size: 12px;
+  cursor: pointer;
+}
+.twit-unfollow {
+  padding: 1px 5px;
+  background: #fff;
+  border: 1px solid silver;
+  border-radius: 5px;
+  color: blue;
   font-size: 12px;
   cursor: pointer;
 }
